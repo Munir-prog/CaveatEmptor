@@ -15,9 +15,9 @@ public class Category {
 
     public void addItem(Item item){
         if (item == null)
-            throw new NullPointerException("Can't add null Bid");
+            throw new NullPointerException("Can't add null item");
         if (item.getCategory() != null)
-            throw new IllegalStateException("Bid is already assigned to an Item");
+            throw new IllegalStateException("Item is already assigned to an Category");
         getItems().add(item);
         item.setCategory(this);
     }

@@ -22,6 +22,8 @@ public class Item {
     private LocalDate auctionStart;
     private LocalDate auctionEnd;
     private Set<Bid> bids = new HashSet<>();
+    private String imagePath;
+    private User user;
 
     public void addBid(Bid bid){
         if (bid == null)
