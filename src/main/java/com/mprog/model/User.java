@@ -16,7 +16,8 @@ public class User { // maybe serializable
     private String lastName;
     private Set<Item> items = new HashSet<>();
     private Address address;
-
+    private BillingDetails billingDetails;
+    
     public BigDecimal calcShippingCosts(Address fromLocation){
         return null;
     }
