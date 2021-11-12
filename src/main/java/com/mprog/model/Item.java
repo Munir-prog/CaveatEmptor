@@ -3,6 +3,13 @@ package com.mprog.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -10,20 +17,31 @@ import java.util.Set;
 
 @Getter
 @Setter
+@Entity
 public class Item {
 
-    private Category category;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @NotNull
+    @Size(
+            min = 2,
+            max = 255,
+            message = "Name is required, maximum 255 characters."
+    )
     private String name;
     private String description;
     private LocalDate createdOn;
     private boolean verified;
-    private AuctionType auctionType;
+//    private AuctionType auctionType;
     private BigDecimal initialPrice;
     private LocalDate auctionStart;
+    @Future
     private LocalDate auctionEnd;
     private Set<Bid> bids = new HashSet<>();
     private String imagePath;
     private User user;
+    private Category category;
 
     public void addBid(Bid bid){
         if (bid == null)
