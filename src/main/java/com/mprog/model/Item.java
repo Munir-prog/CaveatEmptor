@@ -1,6 +1,8 @@
 package com.mprog.model;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -38,17 +40,19 @@ public class Item {
     private LocalDate auctionStart;
     @Future
     private LocalDate auctionEnd;
-    private Set<Bid> bids = new HashSet<>();
-    private String imagePath;
-    private User user;
-    private Category category;
+//    private Set<Bid> bids = new HashSet<>();
+    private String imageName;
 
-    public void addBid(Bid bid){
-        if (bid == null)
-            throw new NullPointerException("Can't add null Bid");
-        if (bid.getItem() != null)
-            throw new IllegalStateException("Bid is already assigned to an Item");
-        getBids().add(bid);
-        bid.setItem(this);
-    }
+//    private User user;
+//    private Category category;
+
+
+//    public void addBid(Bid bid){
+//        if (bid == null)
+//            throw new NullPointerException("Can't add null Bid");
+//        if (bid.getItem() != null)
+//            throw new IllegalStateException("Bid is already assigned to an Item");
+//        getBids().add(bid);
+//        bid.setItem(this);
+//    }
 }
