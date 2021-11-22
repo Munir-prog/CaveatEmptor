@@ -3,10 +3,7 @@ package com.mprog.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +11,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Table(name = "users")
 public class User { // maybe serializable
 
     @Id
@@ -30,12 +28,12 @@ public class User { // maybe serializable
         return null;
     }
 
-    public void addItem(Item item){
-        if (item == null)
-            throw new NullPointerException("Can't add null item");
-        if (item.getUser() != null)
-            throw new IllegalStateException("Item is already assigned to an User");
-        getItems().add(item);
-        item.setUser(this);
-    }
+//    public void addItem(Item item){
+//        if (item == null)
+//            throw new NullPointerException("Can't add null item");
+//        if (item.getUser() != null)
+//            throw new IllegalStateException("Item is already assigned to an User");
+//        getItems().add(item);
+//        item.setUser(this);
+//    }
 }
