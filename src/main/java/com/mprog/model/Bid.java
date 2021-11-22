@@ -2,6 +2,7 @@ package com.mprog.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
+@Immutable
 public class Bid {
 
     @Id

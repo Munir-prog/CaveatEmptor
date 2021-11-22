@@ -1,6 +1,7 @@
 package com.mprog;
 
 import com.mprog.model.Item;
+import com.mprog.model.ItemBidSummary;
 import com.mprog.model.User;
 
 import javax.persistence.EntityManager;
@@ -34,6 +35,16 @@ public class JavaApp {
         insertItem(1, 1000, LocalDate.of(2021, 11, 21));
         insertItem(12, 10020, LocalDate.of(2021, 11, 21));
 //        getItemByCriteria();
+
+    }
+
+    private static void subSelect(){
+        var entityManager = getEntityManager();
+        var transaction = entityManager.getTransaction();
+        transaction.begin();
+        var itemBidSummary = entityManager.find(ItemBidSummary.class, 2);
+
+        transaction.commit();
     }
 
     private static void getItemByCriteria() {
